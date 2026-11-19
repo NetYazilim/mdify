@@ -1,0 +1,41 @@
+<!doctype html><html><head><title>11 Kafka Design Patterns for Every Backend Engineer</title></head><body>
+<article class="overflow-hidden bg-white rounded-lg shadow-lg dark:bg-zinc-900"><div data-nosnippet="" style="display: contents"><nav><button type="button" aria-label="Go back">b</button><a href="https://mvineetsharma.medium.com/11-kafka-design-patterns-for-every-backend-engineer-f053bdadd99e" target="_blank" aria-label="Open original article" title="Open original article">o</a></nav></div>
+<figure class="image-zoom-figure svelte-tpe5ub"><img src="/img/700/0*nsKaZzd3eHByK17E.jpg" alt="Post cover image" data-zoom-src="/img/4000/0*nsKaZzd3eHByK17E.jpg" data-caption="11 Kafka Design Patterns for Every Backend Engineer" class="object-cover w-full h-auto min-h-96 svelte-tpe5ub"> <figcaption class="image-zoom-caption svelte-tpe5ub">11 Kafka Design Patterns for Every Backend Engineer</figcaption></figure>
+<header class="p-6 bg-gray-50 dark:bg-zinc-800"><p>April 4, 2026</p> <h1>11 Kafka Design Patterns for Every Backend Engineer</h1> <p>Brief intro, detailed explainer for each pattern, Mermaid diagrams, small code snippets.</p> <div class="flex items-start"><div class="flex mr-4 shrink-0"><img src="/img/700/1*u0kG3U0iiFtJZ4gYQPH4xQ.png" alt="" class="w-12 h-12 rounded-full object-cover"></div> <div><p>By Vineet Sharma</p> <p>14 min read</p></div></div></header>
+<section aria-labelledby="toc-heading"><h2 id="toc-heading">Contents</h2></section>
+<div class="p-6 dark:text-gray-300"><div class="prose max-w-none prose-external-links">
+<h3 id="1-event-sourcing">1. Event Sourcing</h3>
+<p>Store every change as an immutable event.</p>
+<picture>
+  <source media="(max-width: 768px)">
+  <source media="(min-width: 769px)">
+  <img src="/img/700/0*Fbkg1VCzlwpEsFnd.jpg" alt="None" width="1024" height="559" loading="lazy" data-zoom-src="/img/4000/0*Fbkg1VCzlwpEsFnd.jpg" class="prose-image" data-caption="Event Sourcing">
+</picture>
+<picture>
+  <source media="(max-width: 768px)">
+  <source media="(min-width: 769px)">
+  <img src="/img/700/0*poal1v-dcvJzybo2.png" alt="None" width="1024" height="559" loading="lazy" data-zoom-src="/img/4000/0*poal1v-dcvJzybo2.png" class="prose-image" data-caption="Event Sourcing [&lt;a href=&quot;https://medium.com/@user/diagram-01&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;View Source&lt;span&gt;&lt;svg width=&quot;1em&quot;&gt;&lt;path d=&quot;M1&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/a&gt;]">
+</picture>
+<div class="relative">
+							<button data-code="# Producer - append only
+event = {&quot;event_type&quot;: &quot;OrderCreated&quot;}" class="code-copy-btn absolute right-3 top-3">c</button>
+<div class="dark:hidden"><pre class="code-theme-light" style="background-color:#fff;color:#24292e" tabindex="0"><code contenteditable="true" aria-label="code"><span class="line"><span style="color:#24292E"># Producer - append only</span></span>
+<span class="line"><span style="color:#24292E">event </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#032F62">"event_type"</span><span style="color:#D73A49">:</span><span style="color:#032F62"> "OrderCreated"</span><span style="color:#24292E">}</span></span></code></pre></div>
+<div class="hidden dark:block"><pre class="code-theme-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code contenteditable="true" aria-label="code"><span class="line"><span style="color:#E1E4E8"># Producer - append only</span></span>
+<span class="line"><span style="color:#E1E4E8">event </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span><span style="color:#9ECBFF">"event_type"</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> "OrderCreated"</span><span style="color:#E1E4E8">}</span></span></code></pre></div>
+</div>
+<h3 id="2-cqrs">2. CQRS</h3>
+<div class="relative">
+<button data-code="read_model.get(id)" class="code-copy-btn">c</button>
+<div class="dark:hidden"><pre class="code-theme-light" tabindex="0"><code><span class="line"><span>read_model.get(id)</span></span></code></pre></div>
+<div class="hidden dark:block"><pre class="code-theme-dark" tabindex="0"><code><span class="line"><span>read_model.get(id)</span></span></code></pre></div>
+</div>
+<p>Same snippet shown again on purpose:</p>
+<div class="relative">
+<button data-code="read_model.get(id)" class="code-copy-btn">c</button>
+<div class="dark:hidden"><pre class="code-theme-light" tabindex="0"><code><span class="line"><span>read_model.get(id)</span></span></code></pre></div>
+<div class="hidden dark:block"><pre class="code-theme-dark" tabindex="0"><code><span class="line"><span>read_model.get(id)</span></span></code></pre></div>
+</div>
+</div></div>
+<div data-nosnippet=""><nav>x</nav></div></article>
+</body></html>

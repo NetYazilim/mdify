@@ -1,0 +1,28 @@
+<!doctype html><html><head><title>The Python Trick Behind Decorators — What @ Really Does</title></head><body>
+<div class="bar">
+        <a class="home" href="/">home</a>
+        <div class="right">
+            <details class="dl"><summary>Download</summary><div class="menu"><button type="button" data-dl="md">Download as MD</button><button type="button" data-dl="pdf">Download as PDF</button></div></details>
+            <a class="source" href="https://medium.com/python-in-plain-english/the-python-trick-behind-decorators-what-really-does-4eedb26fe77e" rel="noopener nofollow">Original on Medium →</a>
+        </div>
+</div>
+<article>
+<h1>The Python Trick Behind Decorators — What @ Really Does</h1>
+<p class="meta">Zayd Islam · Oct 10, 2026 · 8 min read</p>
+<p class="print-source">https://medium.com/python-in-plain-english/the-python-trick-behind-decorators-what-really-does-4eedb26fe77e</p>
+<div class="body">
+<p>Python Tricks That Make Senior Engineers Look Like Wizards — Part 2</p>
+<p><a href="https://medium.com/@zayd/part-1">Read part 1</a></p>
+<figure><img src="https://miro.medium.com/v2/resize:fit:1400/1*TdpN_DW0lBu8a91uoPG6Xg.png" alt="" loading="lazy"></figure>
+<p>Have you ever looked at Python code like this and wondered what the @ symbol is doing?</p>
+<pre><code class="language-python">@app.route("/users")
+def get_users():
+    return ["Alice", "Bob"]</code></pre>
+<p>Or this?</p>
+<pre><code class="language-python hljs" data-highlighted="yes"><span class="hljs-meta">@property</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">full_name</span>(self):
+    <span class="hljs-keyword">return</span> <span class="hljs-string">f"{self.first} {self.last}"</span></code></pre>
+<figure><img src="https://miro.medium.com/v2/resize:fit:1400/1*second.png" alt="Decorator flow"><figcaption>How a decorator wraps a function</figcaption></figure>
+</div>
+</article>
+</body></html>
