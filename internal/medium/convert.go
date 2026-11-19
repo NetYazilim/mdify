@@ -68,6 +68,13 @@ func Convert(pageHTML, sourceURL string) (*Result, error) {
 		return nil, ErrNoArticle
 	}
 
+	// Tarayıcıdan kaydedilmiş sayfa: gerçek URL'yi ve yerel dosyaya çevrilmiş
+	// resim yollarını geri al.
+	sourceURL = resolveSourceURL(pageHTML, sourceURL)
+	restoreSavedImages(doc)
+	trimEmphasisSpace(doc)
+	fixLiteralBold(doc)
+
 	title := extractTitle(doc)
 	var authorName, authorLink, original string
 	mirror := true
@@ -481,7 +488,34 @@ var (
 	reLinkCloseNL = regexp.MustCompile(`\n+\]\(`)
 )
 
+// reEscape matches a backslash escape of punctuation (e.g. \~ \* \_ \#).
+var reEscape = regexp.MustCompile(`\\([^a-zA-Z0-9\s])`)
+
+// unescapeOutsideCode removes the converter's backslash escapes (as the
+// original mdify does), but leaves fenced code blocks and inline code alone.
+func unescapeOutsideCode(md string) string {
+	lines := strings.Split(md, "\n")
+	inFence := false
+	for i, l := range lines {
+		if strings.HasPrefix(strings.TrimSpace(l), "```") {
+			inFence = !inFence
+			continue
+		}
+		if inFence {
+			continue
+		}
+		// satır içi kod: backtick'lere göre böl, yalnızca çift indeksli parçalara dokun
+		parts := strings.Split(l, "`")
+		for j := 0; j < len(parts); j += 2 {
+			parts[j] = reEscape.ReplaceAllString(parts[j], "$1")
+		}
+		lines[i] = strings.Join(parts, "`")
+	}
+	return strings.Join(lines, "\n")
+}
+
 func cleanMarkdown(md string) string {
+	md = unescapeOutsideCode(md)
 	md = reLinkOpenNL.ReplaceAllString(md, "[")
 	md = reLinkCloseNL.ReplaceAllString(md, "](")
 	md = strings.ReplaceAll(md, "[](", "[nameless link](")

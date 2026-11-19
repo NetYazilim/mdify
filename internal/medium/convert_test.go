@@ -76,3 +76,11 @@ func TestValidateURL(t *testing.T) {
 		}
 	}
 }
+
+func TestUnescapeOutsideCode(t *testing.T) {
+	in := "yaklaşık \\~20k token, a\\_b `x\\_y`\n```\nC:\\\\path \\~\n```\n"
+	want := "yaklaşık ~20k token, a_b `x\\_y`\n```\nC:\\\\path \\~\n```\n"
+	if got := unescapeOutsideCode(in); got != want {
+		t.Errorf("got %q\nwant %q", got, want)
+	}
+}
